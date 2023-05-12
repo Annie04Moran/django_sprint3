@@ -28,7 +28,7 @@ def post_detail(request, id):
             pub_date__lte=timezone.now(),
             is_published=True,
             category__is_published=True
-        ),
+    ),
         pk=id
     )
     context = {'post': post_list}
