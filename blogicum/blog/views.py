@@ -14,7 +14,7 @@ def index(request):
         pub_date__lte=timezone.now(),
         is_published=True,
         category__is_published=True
-            )[0:5]
+    )[0:5]
     context = {'post_list': post_list}
     return render(request, template, context)
 
@@ -23,13 +23,13 @@ def post_detail(request, id):
     template = 'blog/detail.html'
     post_list = get_object_or_404(Post.objects.select_related(
         'location', 'author', 'category'
-                                                             ).filter(
+        ).filter(
             pub_date__lte=timezone.now(),
             is_published=True,
             category__is_published=True
-                ),
+        ),
         pk=id
-                                 )
+    )
     context = {'post': post_list}
     return render(request, template, context)
 
@@ -44,6 +44,6 @@ def category_posts(request, category_slug):
         pub_date__lte=timezone.now(),
         is_published=True,
         category=category
-                                   )
+        )
     context = {'category': category, 'post_list': post_list}
     return render(request, template, context)
