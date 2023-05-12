@@ -23,10 +23,6 @@ class Category(BaseModel):
                             help_text='Идентификатор страницы для URL; '
                             'разрешены символы латиницы, цифры, дефис и '
                             'подчёркивание.')
-    is_published = models.BooleanField(default=True,
-                                       verbose_name='Опубликовано',
-                                       help_text='Снимите галочку, чтобы '
-                                       'скрыть публикацию.')
     created_at = models.DateTimeField(auto_now_add=True,
                                       verbose_name='Добавлено')
 
@@ -37,12 +33,6 @@ class Category(BaseModel):
 
 class Location(BaseModel):
     name = models.CharField(max_length=256, verbose_name='Название места')
-    is_published = models.BooleanField(default=True,
-                                       verbose_name='Опубликовано',
-                                       help_text='Снимите галочку,'
-                                       'чтобы скрыть публикацию. '
-                                       'Оставьте галочку, чтобы опубликовать '
-                                       'запись на сайте.')
     created_at = models.DateTimeField(auto_now_add=True,
                                       verbose_name='Добавлено')
 
